@@ -504,7 +504,7 @@ footer p {
 nav { gap: 12px; }
 nav > span { display: flex; gap: 8px; align-items: center; }
 
-/* Scroll progress indicator and convenient back-to-top button */
+/* Scroll progress indicator and back-to-top button */
 .scroll-progress { position: fixed; z-index: 50; top: 0; left: 0; height: 4px; width: 0; background: #2b7fd0; pointer-events: none; }
 #back-to-top { position: fixed; bottom: 22px; right: 22px; z-index: 19; height: 44px; width: 44px; border: 1px solid var(--ink); border-radius: 50%; background: var(--card); color: var(--ink); font-size: 22px; cursor: pointer; opacity: 0; pointer-events: none; transform: translateY(10px); transition: .25s; }
 #back-to-top.visible { opacity: 1; pointer-events: auto; transform: none; }
@@ -514,7 +514,7 @@ nav > span { display: flex; gap: 8px; align-items: center; }
 .flip:focus-visible, .btn:focus-visible, nav a:focus-visible, #back-to-top:focus-visible { outline: 3px solid #f9bb46; outline-offset: 3px; }
 @media (max-width: 760px) { nav { flex-wrap: nowrap; } .logo img { width: 130px; } nav a.l { font-size: 14px; } }
 
-/* Logo: blue version in light mode, light blue version in dark mode. */
+/* Logo: blue version in light mode, light blue version in the dark mode. */
 .logo .logo-dark { display:none }
 :root[data-theme="dark"] .logo .logo-light { display:none }
 :root[data-theme="dark"] .logo .logo-dark { display:block }
@@ -525,7 +525,6 @@ nav > span { display: flex; gap: 8px; align-items: center; }
 
 /* ============================================================================
    UPCOMING CALENDAR
-   Colors for each event type: "bg" is the soft tint, "ink" is the text/dot.
    ============================================================================ */
 :root {
   --meeting-bg:#d5ecfd; --meeting-ink:#0960AB;
@@ -669,3 +668,20 @@ html.lb-open, html.lb-open body { overflow:hidden }
   .gtile, .lb { animation:none; opacity:1 }
   .gtile img, .lb img { transition:none }
 }
+
+/* ============================================================================
+   CONTACT
+   ============================================================================ */
+.contact-grid { max-width:780px; margin:0 auto }
+.contact-card { display:flex; flex-direction:column; align-items:center }
+.contact-card p { flex:1; margin-bottom:20px }
+.contact-email { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px; margin-top:28px; font-size:15px }
+.contact-email span { font-weight:300 }
+.contact-email a { color:var(--ink); font-weight:700; text-decoration:none; border-bottom:2px solid var(--soft); word-break:break-all }
+.contact-email a:hover { color:var(--soft) }
+.copy-btn { border:1.5px solid var(--ink); background:none; color:var(--ink); font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px; cursor:pointer; transition:.2s }
+.copy-btn:hover { background:var(--ink); color:var(--on) }
+.copy-btn.copied { background:var(--ink); color:var(--on) }
+.copy-btn:focus-visible, .contact-email a:focus-visible, .footer-email:focus-visible { outline:3px solid #f9bb46; outline-offset:2px }
+.footer-email { color:var(--ink); font-weight:600; text-decoration:none; border-bottom:2px solid var(--soft) }
+.footer-email:hover { color:var(--soft) }

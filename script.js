@@ -55,7 +55,7 @@ UMICH ASBMB — INTERACTIVITY
   /* ==========================================================================
      UPCOMING CALENDAR
      --------------------------------------------------------------------------
-     Instructions for if we need to edit: add, change, or delete entries in the EVENTS list below.
+     Instructions for if you guys need to edit: add, change, or delete entries in the events list below.
      Each event sits between { and } and is followed by a comma.
 
        date:      'YYYY-MM-DD'   required, e.g. '2026-11-05'
@@ -73,11 +73,10 @@ UMICH ASBMB — INTERACTIVITY
      Meetings and socials without their own time or place use the MEETING
      settings just below.
 
-     Order does not matter; the calendar sorts itself. Past events disappear
+     Order does not matter, the calendar sorts itself. Past events disappear
      automatically the day after they end.
      ========================================================================== */
-  // SUNDAY CHAPTER MEETINGS: fill these in once and every meeting below uses
-  // them automatically (an event's own startTime or place still wins).
+
   var MEETING = { startTime: '2:00 pm', endTime: '3:00 pm', place: 'Mason Hall, Room 3300' };
 
   var EVENTS = [
@@ -145,6 +144,7 @@ UMICH ASBMB — INTERACTIVITY
     function dayKey(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
     function ymd(d) { return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); }
     function addDays(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+
     // Turns '6:00 pm' into minutes after midnight (or -1 if missing).
     function toMin(t) {
       var m = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i.exec(t || '');
@@ -202,7 +202,7 @@ UMICH ASBMB — INTERACTIVITY
       return out;
     }
 
-    // Filter bttns.
+    // Filter bttns
     var fwrap = $('#cal-filters');
     var fhtml = '<button type="button" class="chip" data-f="all" aria-pressed="true">All</button>';
     Object.keys(TYPES).forEach(function (k) {
@@ -304,8 +304,8 @@ UMICH ASBMB — INTERACTIVITY
      Captions are optional. Add one after a | sign, like this:
        'images/festifall.jpg | Festifall 2026',
 
-     Photos appear in the order listed. Any photo that can't be found is
-     simply skipped, so a typo never breaks the page.
+     Photos appear in the order that they are listed. Any photo that can't be found is
+     simply skipped.
      ========================================================================== */
   var PHOTOS = [
     'images/group-photo.jpg | E-Board Members'
@@ -323,7 +323,7 @@ UMICH ASBMB — INTERACTIVITY
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
       });
     }
-    // Turns a Google Drive share link into a direct image link.
+    // Turns a Google Drive shared link into a direct image link (if needed but not in current website)
     function toSrc(s) {
       var m = /drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/.exec(s);
       return m ? 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w2000' : s;
@@ -351,7 +351,7 @@ UMICH ASBMB — INTERACTIVITY
         (x.cap ? '<span class="gcap">' + esc(x.cap) + '</span>' : '') + '</button>';
     }).join('');
 
-    // Skip any photo that fails to load.
+    // Skip any photo that doesn't load in 
     $$('#gallery-grid .gtile img').forEach(function (img) {
       img.onerror = function () {
         var t = img.closest('.gtile');
@@ -364,7 +364,7 @@ UMICH ASBMB — INTERACTIVITY
 
     more.onclick = function () { grid.classList.add('all'); refresh(); };
 
-    // Gentle 3D tilt that follows the mouse (desktop only).
+    //  3D tilt that follows the mouse, only for desktop does not work on phone 
     if (finePointer && !reduce) {
       grid.addEventListener('pointermove', function (e) {
         var t = e.target.closest('.gtile'); if (!t) return;
@@ -377,7 +377,7 @@ UMICH ASBMB — INTERACTIVITY
       });
     }
 
-    // FULL SCREEN VIEWER
+    // Full screen view
     var current = 0, lastFocus = null;
     function show(i) {
       var list = good(); if (!list.length) return;
@@ -426,7 +426,7 @@ UMICH ASBMB — INTERACTIVITY
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     });
-    // Swipe left or right on phones.
+    // Swipe left or right on phones
     var sx = null, sy = null;
     lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
     lb.addEventListener('touchend', function (e) {
@@ -436,6 +436,30 @@ UMICH ASBMB — INTERACTIVITY
       else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close();   // swipe down to close
       sx = sy = null;
     });
+  })();
+  // Contact: "Copy" button next to the email address.
+  // Helpful for visitors whose computer has no email app set up.
+  (function copyEmail() {
+    var btn = $('#copy-email'), addr = $('#contact-address');
+    if (!btn || !addr) return;
+    function done(ok) {
+      btn.textContent = ok ? 'Copied!' : 'Press Ctrl+C';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    }
+    function fallback(text) {
+      var t = document.createElement('textarea');
+      t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(t); done(ok);
+    }
+    btn.onclick = function () {
+      var text = addr.textContent.trim();
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallback(text); });
+      } else { fallback(text); }
+    };
   })();
   // Scroll progress + back-to-top
   function updateScrollUI() {

@@ -41,6 +41,11 @@
       MEMBERSHIP
      </a>
     </li>
+    <li>
+     <a class="l" href="#contact">
+      CONTACT
+     </a>
+    </li>
    </ul>
    <span>
     <button aria-label="Toggle dark mode" id="theme">
@@ -51,7 +56,7 @@
     </button>
    </span>
   </nav>
-  <!-- Hero: animated molecules and main call to action -->
+  <!-- Hero: animated molecules -->
   <header class="hero" id="top">
    <canvas id="cv">
    </canvas>
@@ -67,7 +72,7 @@
    </div>
    
   </header>
-  <!-- About: chapter introduction and three mission cards -->
+  <!-- About: chapter introduction and mission cards -->
   <section class="s" id="about">
    <h2 class="rv">
     About Us
@@ -103,7 +108,7 @@ We are the University of Michigan’s student chapter of the American Society fo
     </div>
    </div>
   </section>
-  <!-- Calendar: the events themselves live in script.js (look for "var EVENTS") -->
+  <!-- Calendar: the events themselves live in script.js -->
   <section class="s" id="events">
    <h2 class="rv">
     Upcoming Calendar
@@ -127,7 +132,7 @@ We are the University of Michigan’s student chapter of the American Society fo
     </div>
    </div>
   </section>
-  <!-- Gallery: the photo list lives in script.js (look for "var PHOTOS") -->
+  <!-- Gallery: the photos -->
   <section class="s" id="gallery">
    <h2 class="rv">
     Gallery
@@ -144,7 +149,7 @@ We are the University of Michigan’s student chapter of the American Society fo
     Show more photos
    </button>
   </section>
-  <!-- Membership: registration form and FAQs -->
+  <!-- Membership: registration form and questions -->
   <section class="s" id="join">
    <div class="join">
     <div class="rv">
@@ -212,6 +217,53 @@ We are the University of Michigan’s student chapter of the American Society fo
     </div>
    </div>
   </section>
+  <!-- Contact: email the chapter
+       To change the email address, update it in the three places marked EMAIL below
+       (the two "mailto:" buttons and the address shown on the page). -->
+  <section class="s" id="contact">
+   <h2 class="rv">
+    Contact Us
+   </h2>
+   <p class="lead rv">
+    Have a question, or want to work with us? We would love to hear from you. Send us an email and a member of our board will get back to you.
+   </p>
+   <div class="grid contact-grid">
+    <div class="card contact-card rv">
+     <h3>
+      Questions
+     </h3>
+     <p>
+      Curious about membership, meetings, events, or how to get involved? Reach out anytime.
+     </p>
+     <!-- EMAIL -->
+     <a class="btn" href="mailto:ASBMBadmin@umich.edu?subject=Question%20for%20UMich%20ASBMB">
+      Ask a Question
+     </a>
+    </div>
+    <div class="card contact-card rv">
+     <h3>
+      Work With Us
+     </h3>
+     <p>
+      Faculty, researchers, companies, and other student groups: we welcome guest speakers and collaborations. 
+     </p>
+     <!-- EMAIL -->
+     <a class="btn" href="mailto:ASBMBadmin@umich.edu?subject=Partnership%20with%20UMich%20ASBMB">
+      Partner With Us
+     </a>
+    </div>
+   </div>
+   <div class="contact-email rv">
+    <span>
+     Or email us directly:
+    </span>
+    <!-- EMAIL -->
+    <a href="mailto:ASBMBadmin@umich.edu" id="contact-address">ASBMBadmin@umich.edu</a>
+    <button class="copy-btn" id="copy-email" type="button" aria-label="Copy email address">
+     Copy
+    </button>
+   </div>
+  </section>
   <!-- Donation link -->
   <div class="donate rv">
    <h2>
@@ -240,6 +292,9 @@ We are the University of Michigan’s student chapter of the American Society fo
      Facebook
     </a>
    </div>
+   <p>
+    Email: <a class="footer-email" href="mailto:ASBMBadmin@umich.edu">ASBMBadmin@umich.edu</a>
+   </p>
    <p>
     University of Michigan ASBMB Student Chapter &middot; Founded in 2024
    </p>
