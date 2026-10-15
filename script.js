@@ -294,6 +294,167 @@ UMICH ASBMB — INTERACTIVITY
     renderList();
   })();
   /* ==========================================================================
+     MEET THE TEAM
+     --------------------------------------------------------------------------
+     This is how to add or change a person if needed: edit the list below. Each person sits
+     between { and } and is followed by a comma.
+
+       name:      their full name                       required
+       role:      their board position, e.g. 'President'
+       photo:     'images/team/firstname.jpg'           optional
+       about:     a short description (2 or 3 sentences works best)
+       email:     their email address                   optional
+       linkedin:  their full LinkedIn web address       optional
+
+     Photos: put them in an "images/team" folder. Square photos look best,
+     but any shape works because they are cropped into a circle. If a photo
+     is missing or can't be found, their initials show instead.
+
+     Leave out email or linkedin (delete the whole line) and that button
+     simply won't appear. People show up in the order listed.
+     ========================================================================== */
+  var TEAM = [
+    { name: 'Trevor Morey', role: 'President',
+      photo: 'images/trevor.png',
+      about: 'Senior double majoring in Biochemistry and Computer Science.',
+      email: 'tjmorey@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/trevor-morey-728090343/' },
+
+    { name: 'Manasvi Patel', role: 'Vice President',
+      photo: 'images/manasvi.png',
+      about: 'Senior majoring in Cellular, Molecular, and Biomedical Science.',
+      email: 'manasvip@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/manasvipatel23/' },
+
+    { name: 'Annika Chan', role: 'Director of Finance',
+      photo: 'images/annika.png',
+      about: 'Junior majoring in Biochemistry.',
+      email: 'aschan@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/annikaschan/' },
+
+    { name: 'Hoda Elshaarawy', role: 'Director of Communications',
+      photo: 'images/hoda.png',
+      about: 'Senior majoring in Biochemistry.',
+      email: 'hodaelsh@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/hoda-elshaarawy/' },
+
+    { name: 'Valeria Mas', role: 'Director of Correspondance',
+      photo: 'images/valeria.png',
+      about: 'Senior majoring in Biochemistry.',
+      email: 'mvaleria@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/valeria-mas-132a59288/' },
+
+    { name: 'Anthony Adams', role: 'Director of Membership',
+      photo: 'images/anthony.png',
+      about: 'Sophomore double majoring in Molecular Biology and German.',
+      email: 'antadams@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/anthony-a-adams/' },
+
+
+    { name: 'Quinn Dorsey', role: 'Director of Outreach',
+      photo: 'images/quinn.png',
+      about: 'Junior majoring in Biochemistry.',
+      email: 'mqdorsey@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/mary-dorsey-2a735a31a/' },
+
+    { name: 'Sydnie Klauza', role: 'Director of Research',
+      photo: 'images/sydnie.png',
+      about: 'Junior majoring in Microbiology.',
+      email: 'sydboi@umich.edu',
+      linkedin: 'https://www.linkedin.com/in/sydnie-klauza-um/' }
+  ];
+
+  (function team() {
+    var stage = $('#team-stage'), dotsBox = $('#team-dots'), count = $('#team-count');
+    if (!stage || !TEAM.length) return;
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+      });
+    }
+    function initials(name) {
+      return String(name || '').trim().split(/\s+/).map(function (w) { return w.charAt(0); })
+        .filter(Boolean).slice(0, 2).join('').toUpperCase() || '?';
+    }
+    var mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.2V17h16V7.2l-8 5.3-8-5.3zM5.6 7l6.4 4.2L18.4 7H5.6z"/></svg>';
+    var inIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"/></svg>';
+
+    // Build one card per person
+    stage.innerHTML = TEAM.map(function (p, i) {
+      var links = '';
+      if (p.email) links += '<a class="team-link" href="mailto:' + esc(p.email) + '" aria-label="Email ' + esc(p.name) + '">' + mailIcon + '<span>Email</span></a>';
+      if (p.linkedin) links += '<a class="team-link" href="' + esc(p.linkedin) + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + ' on LinkedIn">' + inIcon + '<span>LinkedIn</span></a>';
+      return '<article class="team-card" aria-roledescription="slide" aria-label="' + (i + 1) + ' of ' + TEAM.length + ': ' + esc(p.name) + '">' +
+        '<div class="team-photo" data-initials="' + esc(initials(p.name)) + '">' +
+          (p.photo ? '<img src="' + esc(p.photo) + '" alt="Photo of ' + esc(p.name) + '">' : '') +
+        '</div>' +
+        '<h3>' + esc(p.name) + '</h3>' +
+        (p.role ? '<p class="team-role">' + esc(p.role) + '</p>' : '') +
+        (p.about ? '<p class="team-about">' + esc(p.about) + '</p>' : '') +
+        (links ? '<div class="team-links">' + links + '</div>' : '') +
+        (p.email ? '<p class="team-email">' + esc(p.email) + '</p>' : '') +
+      '</article>';
+    }).join('');
+
+    // If a photo is missing, show the person's initials instead
+    $$('#team-stage .team-photo img').forEach(function (img) {
+      img.onerror = function () { img.remove(); };
+    });
+
+    // Dots under the card: one per person, tap one to jump straight to them.
+    dotsBox.innerHTML = TEAM.map(function (p, i) {
+      return '<button type="button" class="team-dot" data-i="' + i + '" aria-label="Show ' + esc(p.name) + (p.role ? ', ' + esc(p.role) : '') + '"></button>';
+    }).join('');
+
+    var cards = $$('#team-stage .team-card'), dots = $$('#team-dots .team-dot'), current = 0;
+
+    // Show person number 1
+    function show(i, dir) {
+      var n = cards.length;
+      current = ((i % n) + n) % n;   // loops around: after the last person comes the first
+      cards.forEach(function (c, k) {
+        var on = k === current;
+        c.classList.remove('from-left', 'from-right');
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-hidden', String(!on));
+      });
+      if (dir) {
+        void cards[current].offsetWidth;
+        cards[current].classList.add(dir > 0 ? 'from-right' : 'from-left');
+      }
+      dots.forEach(function (d, k) { d.setAttribute('aria-current', String(k === current)); });
+      count.textContent = (current + 1) + ' of ' + n;
+    }
+
+    $('#team-prev').onclick = function () { show(current - 1, -1); };
+    $('#team-next').onclick = function () { show(current + 1, 1); };
+    dotsBox.onclick = function (e) {
+      var d = e.target.closest('.team-dot'); if (!d) return;
+      var i = +d.getAttribute('data-i');
+      if (i !== current) show(i, i > current ? 1 : -1);
+    };
+    // Left and right arrow keys work when the slider has keyboard focus.
+    $('#team-carousel').addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(current - 1, -1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); show(current + 1, 1); }
+    });
+    // Swipe left or right on phones.
+    var tx = null, ty = null;
+    stage.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (tx === null) return;
+      var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(current + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+      tx = ty = null;
+    });
+
+    // With only one person there is nothing to flip through, so hide all of te controls
+    if (cards.length < 2) {
+      $('#team-prev').hidden = true; $('#team-next').hidden = true; dotsBox.hidden = true; count.hidden = true;
+    }
+    show(0, 0);
+  })();
+  /* ==========================================================================
      PHOTO GALLERY
      --------------------------------------------------------------------------
      How to add more photos:

@@ -685,3 +685,51 @@ html.lb-open, html.lb-open body { overflow:hidden }
 .copy-btn:focus-visible, .contact-email a:focus-visible, .footer-email:focus-visible { outline:3px solid #f9bb46; outline-offset:2px }
 .footer-email { color:var(--ink); font-weight:600; text-decoration:none; border-bottom:2px solid var(--soft) }
 .footer-email:hover { color:var(--soft) }
+
+/* ============================================================================
+   MEET THE TEAM
+   Cards with a round photo, name, role, description, and contact buttons.
+   ============================================================================ */
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px }
+.team-card { display:flex; flex-direction:column; align-items:center; background:var(--card); border-radius:16px; padding:28px 20px 22px; text-align:center; transition:.4s }
+.team-card:hover { box-shadow:0 0 24px var(--soft); transform:translateY(-4px) }
+.team-photo { position:relative; width:128px; height:128px; border-radius:50%; overflow:hidden; margin-bottom:16px; background:linear-gradient(135deg,var(--ink),var(--soft)); box-shadow:0 0 0 4px var(--bg), 0 0 0 6px var(--soft) }
+.team-photo::before { content:attr(data-initials); position:absolute; inset:0; display:grid; place-items:center; font-size:38px; font-weight:700; letter-spacing:1px; color:var(--on) }
+.team-photo img { position:relative; display:block; width:100%; height:100%; object-fit:cover; background:var(--card) }
+.team-card h3 { font-size:18px; margin-bottom:4px }
+.team-role { font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; opacity:.8; margin-bottom:12px }
+.team-about { font-size:13px; line-height:1.7; font-weight:300; flex:1; margin-bottom:16px }
+.team-links { display:flex; flex-wrap:wrap; justify-content:center; gap:8px }
+.team-link { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--ink); text-decoration:none; border:1.5px solid var(--ink); border-radius:20px; padding:7px 14px; transition:.2s }
+.team-link svg { width:15px; height:15px; fill:currentColor }
+.team-link:hover { background:var(--ink); color:var(--on) }
+.team-link:focus-visible { outline:3px solid #f9bb46; outline-offset:2px }
+.team-email { font-size:12px; font-weight:500; margin-top:10px; opacity:.85; word-break:break-all }
+@media (max-width:420px) { .team-photo { width:112px; height:112px } }
+
+/* One person at a time, with arrows on each side and dots underneath. */
+.team-carousel { display:flex; align-items:center; justify-content:center; gap:18px; max-width:620px; margin:0 auto }
+.team-stage { flex:1; min-width:0; display:grid }
+.team-stage .team-card { grid-area:1 / 1; visibility:hidden }   /* all cards share one spot, so the box keeps the height of the tallest */
+.team-stage .team-card.active { visibility:visible }
+.team-stage .team-card.from-right { animation:team-in-right .45s ease }
+.team-stage .team-card.from-left { animation:team-in-left .45s ease }
+@keyframes team-in-right { from { opacity:0; transform:translateX(40px) } to { opacity:1; transform:none } }
+@keyframes team-in-left { from { opacity:0; transform:translateX(-40px) } to { opacity:1; transform:none } }
+.team-arrow { flex:0 0 auto; display:grid; place-items:center; width:52px; height:52px; padding:0 0 4px; border-radius:50%; border:1.5px solid var(--ink); background:var(--bg); color:var(--ink); font-size:32px; line-height:1; cursor:pointer; transition:.2s }
+.team-arrow:hover { background:var(--ink); color:var(--on); transform:scale(1.06) }
+.team-count { font-size:13px; font-weight:600; letter-spacing:1px; margin-top:18px; opacity:.85 }
+.team-dots { display:flex; flex-wrap:wrap; justify-content:center; gap:4px; margin-top:8px }
+.team-dot { display:grid; place-items:center; width:28px; height:28px; padding:0; border:0; background:none; cursor:pointer }
+.team-dot::before { content:""; width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); transition:.2s }
+.team-dot:hover::before { background:var(--soft) }
+.team-dot[aria-current="true"]::before { background:var(--ink); transform:scale(1.25) }
+.team-arrow:focus-visible, .team-dot:focus-visible { outline:3px solid #f9bb46; outline-offset:2px; border-radius:50% }
+@media (max-width:520px) {
+  .team-carousel { gap:8px }
+  .team-arrow { width:40px; height:40px; font-size:26px }
+  .team-stage .team-card { padding:24px 14px 20px }
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-stage .team-card.from-right, .team-stage .team-card.from-left { animation:none }
+}
