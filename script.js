@@ -85,7 +85,7 @@ UMICH ASBMB — INTERACTIVITY
       note: 'No chapter meeting Sunday, and no classes Monday and Tuesday.' },
 
     { date: '2026-10-25', title: 'Grad Student Talk with Quinn', type: 'meeting',
-      note: 'What grad school is really like, straight from a current grad student.' },
+      note: 'What the grad school process is like.' },
 
     { date: '2026-10-30', title: 'ASBMB 2027 Annual Meeting: early decision abstracts due', type: 'deadline',
       note: 'Submit by this date to hear back by Nov. 12.',
