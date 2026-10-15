@@ -469,7 +469,7 @@ UMICH ASBMB — INTERACTIVITY
      simply skipped.
      ========================================================================== */
   var PHOTOS = [
-    'images/group-photo.jpg | E-Board Members'
+    'images/group-photo.png | E-Board Members'
   ];
 
   (function gallery() {
