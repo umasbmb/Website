@@ -359,7 +359,7 @@ UMICH ASBMB — INTERACTIVITY
 
     { name: 'Sydnie Klauza', role: 'Director of Research',
       photo: 'images/sydnie.png',
-      about: 'Junior majoring in Microbiology.',
+      about: 'Senior majoring in Microbiology.',
       email: 'sydboi@umich.edu',
       linkedin: 'https://www.linkedin.com/in/sydnie-klauza-um/' }
   ];
