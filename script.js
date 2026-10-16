@@ -316,7 +316,7 @@ UMICH ASBMB — INTERACTIVITY
   var TEAM = [
     { name: 'Trevor Morey', role: 'President',
       photo: 'images/trevor.png',
-      about: 'Senior double majoring in Biochemistry and Computer Science.',
+      about: 'I’m a senior at the University of Michigan double majoring in Biochemistry and Computer Science. My research interests lie at the intersection of machine learning and molecular biology, particularly in developing computational tools for protein design and discovery. Outside of school, I enjoy watching shows (I'm currently watching The Bear), trying new foods, and playing percussion.',
       email: 'tjmorey@umich.edu',
       linkedin: 'https://www.linkedin.com/in/trevor-morey-728090343/' },
 
