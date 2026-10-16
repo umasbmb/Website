@@ -340,7 +340,7 @@ UMICH ASBMB — INTERACTIVITY
 
     { name: 'Valeria Mas', role: 'Director of Correspondence',
       photo: 'images/valeria.png',
-      about: 'I’m a senior majoring in Biochemistry on the pre-med track. My research interests are in genetics, oncology, and neurodevelopmental diseases. Outside of school, I enjoy cooking, drawing, crocheting, and watching shows. My two all time favorites are Game of Thrones and Peaky Blinders.',
+      about: 'I’m a senior majoring in Biochemistry on the pre-med track. My research interests are in genetics, neurodevelopmental disorders, and oncology. Outside of school, I enjoy cooking, drawing, crocheting, and watching shows. Some of my favorites are Game of Thrones, Peaky Blinders, and The Pitt.',
       email: 'mvaleria@umich.edu',
       linkedin: 'https://www.linkedin.com/in/valeria-mas-132a59288/' },
 
