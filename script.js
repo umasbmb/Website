@@ -338,9 +338,9 @@ UMICH ASBMB — INTERACTIVITY
       email: 'hodaelsh@umich.edu',
       linkedin: 'https://www.linkedin.com/in/hoda-elshaarawy/' },
 
-    { name: 'Valeria Mas', role: 'Director of Correspondance',
+    { name: 'Valeria Mas', role: 'Director of Correspondence',
       photo: 'images/valeria.png',
-      about: 'Senior majoring in Biochemistry.',
+      about: 'I’m a senior majoring in Biochemistry on the pre-med track. My research interests are in genetics, oncology, and neurodevelopmental diseases. Outside of school, I enjoy cooking, drawing, crocheting, and watching shows. My two all time favorites are Game of Thrones and Peaky Blinders.',
       email: 'mvaleria@umich.edu',
       linkedin: 'https://www.linkedin.com/in/valeria-mas-132a59288/' },
 
