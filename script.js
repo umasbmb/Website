@@ -359,7 +359,7 @@ UMICH ASBMB — INTERACTIVITY
 
     { name: 'Sydnie Klauza', role: 'Director of Research',
       photo: 'images/sydnie.png',
-      about: 'Senior majoring in Microbiology.',
+      about: 'I am a senior studying microbiology, currently applying to PhD programs. I work in the Kozik lab on an independent project where I have Identified, and characterized a novel streptococcus(italicize) isolate. I am particularly interested in how microbial communities in the lung, and oral microbiomes interact with one another, as well as the structural and biochemical biology behind acquired resistance proteins in microbes. For fun, I enjoy hiking, reading, and playing card games such as MTG. I have also loved playing trombone for the Michigan Marching Band, Hockey Band, and other ensembles around Ann Arbor.',
       email: 'sydboi@umich.edu',
       linkedin: 'https://www.linkedin.com/in/sydnie-klauza-um/' }
   ];
