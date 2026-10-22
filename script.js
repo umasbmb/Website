@@ -328,7 +328,7 @@ UMICH ASBMB — INTERACTIVITY
 
     { name: 'Annika Chan', role: 'Director of Finance',
       photo: 'images/annika.png',
-      about: 'Junior majoring in Biochemistry.',
+      about: 'Hi, I’m Annika and I’m a sophomore studying biochemistry and BCN (Biopsychology, cognition, and neuroscience) at the University of Michigan! Right now, I’m pre-research (aiming for a PhD!) and am excited about all things to do with biochemistry. Outside of school, I have many hobbies, including knitting, reading, and cooking. I love to learn new things and am delighted to support ASBMB’s objective to empower scientists!',
       email: 'aschan@umich.edu',
       linkedin: 'https://www.linkedin.com/in/annikaschan/' },
 
