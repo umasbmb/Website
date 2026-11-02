@@ -93,7 +93,7 @@ UMICH ASBMB — INTERACTIVITY
     { date: '2026-11-01', title: 'Halloween Meeting', type: 'social',
       note: 'Something super spooky is in the works.', tbd: true },
 
-    { date: '2026-11-08', title: 'Scientific Communication with Valeria', type: 'meeting',
+    { date: '2026-11-08', title: 'Biotech Shark Tank with Valeria & Hoda', type: 'meeting',
       note: 'Details are in the works.' },
 
     { date: '2026-11-15', title: 'Scientific Abstracts and Applications with Sydnie', type: 'meeting',
